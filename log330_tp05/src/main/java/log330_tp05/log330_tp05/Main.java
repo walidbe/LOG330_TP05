@@ -10,35 +10,26 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		while(true){
 		Scanner sc = new Scanner(System.in);
+		while(true){
 		System.out.print("Veuillez saisir l'emplacement du ficher : ");
 		String myFile = sc.nextLine();
 		FileAnalyser fa = new FileAnalyser(myFile);
 		try {
-			List<Points> myList = fa.loadFile();
+			List<Points> myList = fa.tp5LoadFile();
 			CalculD c = new CalculD();
 			if(c.start(myList)){
-				System.out.println("Pente  = " + c.calculateSlope());
-				System.out.println("Constante  = " + c.calculateCste());
-				System.out.print("Choisir x ou y si vous voulez calculer x ou y  (x,y) sinon n pour retourner au menu principal : ");
-				String myRep = sc.nextLine();
-				if(myRep.equals("x")) {
-					System.out.print("Veuillez saisir la valeur Y: ");
-					double yVal = sc.nextDouble();
-					System.out.println("Valeur de X  = " + c.calculateX(yVal));
-
+				double correlation = c.calculateCorrelation();
+				System.out.println("Correlation  = " + correlation);
+				if(correlation >0.8) {
+					System.out.println("On peut conclure qu'on a une bonne correlation");
 				}
-				else if(myRep.equals("y")) {
-					System.out.print("Veuillez saisir la valeur X: ");
-					double xVal = sc.nextDouble();
-					System.out.println("Valeur de Y  = " + c.calculateY(xVal));
+				else{
+					System.out.println("On peut conclure qu'on n'a pas une bonne correlation");
 				}
-		
 			}
 			else
-				System.out.println("erreur lors de traitement de donn�es");
+				System.out.println("erreur lors de traitement de données");
 
 		} catch (FileNotFoundException e) {
 			System.out.println("Le fichier nexiste pas");
@@ -55,7 +46,12 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		System.out.println("Voulez vous continuer ?(o,n)");
+		String myRep = sc.nextLine();
+		if(myRep.equals("n")) {
+		  break;
+		}
+
 		}
 
 	}

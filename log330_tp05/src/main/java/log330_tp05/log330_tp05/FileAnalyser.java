@@ -17,9 +17,35 @@ public class FileAnalyser {
 		this.myFile = myFile;
 	}
 	
+	/**
+	 * this function is used to format data
+	 * @return
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * @throws ParseException 
+	 * @throws NumberFormatException 
+	 */
+	public List<Points> tp5LoadFile() throws FileNotFoundException, IOException, NumberFormatException, ParseException{
+		String line = null;
+		List<Points> numberList = new ArrayList<Points>();
+	
+		BufferedReader bfr = new BufferedReader(new FileReader(myFile));
+		String splitBy = ",";
+		bfr.readLine();
+		bfr.readLine();
+		while((line = bfr.readLine()) != null) {
+			String[] splitLine = line.split(splitBy);
+			Student s = new Student(splitLine[0],Double.parseDouble(splitLine[1]),Double.parseDouble(splitLine[2]),
+					Double.parseDouble(splitLine[3]),Double.parseDouble(splitLine[4]),Double.parseDouble(splitLine[5]),
+					Double.parseDouble(splitLine[6]),Double.parseDouble(splitLine[7]));
+			numberList.add(new Points(s.getAverage(),s.getIntra()));
+		}
+		bfr.close();
+		return numberList;
+	}
 	
 	/**
-	 * this function is user for TP2
+	 * this function is used for TP2
 	 * @return
 	 * @throws FileNotFoundException
 	 * @throws IOException
