@@ -71,5 +71,15 @@ public class CorrelationTest {
 	  	  
 	    } 
 	    
+		@Test
+		public void correlationStudentTest() throws NumberFormatException, FileNotFoundException, IOException, ParseException {
+			FileAnalyser fa = new FileAnalyser("dataStudent.csv");
+	    	 CalculD c = new CalculD();
+			 c.start(fa.tp5LoadFile());
+			assertEquals(0.15,c.calculateCorrelation(),0.01);
+			
+		}
+		
+	    
 	  
 }
