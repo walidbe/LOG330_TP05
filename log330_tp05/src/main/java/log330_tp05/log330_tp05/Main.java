@@ -27,6 +27,9 @@ public class Main {
 				else{
 					System.out.println("On peut conclure qu'on n'a pas une bonne correlation");
 				}
+				
+				System.out.println("Pente  = " + c.calculateSlope());
+				System.out.println("Constante  = " + c.calculateCste());
 			}
 			else
 				System.out.println("erreur lors de traitement de données");
