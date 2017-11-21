@@ -1,5 +1,10 @@
 package log330_tp05.log330_tp05;
 
+/**
+ * Class Points takes 2 attributes X and Y
+ * @author Walid
+ *
+ */
 public class Points {
 	
 	private Double x;

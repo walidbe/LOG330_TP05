@@ -5,7 +5,11 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.Scanner;
 
-
+/**
+ * Class Main  implement interaction with client
+ * @author Walid
+ *
+ */
 public class Main {
 
 	public static void main(String[] args) {
@@ -14,9 +18,18 @@ public class Main {
 		while(true){
 		System.out.print("Veuillez saisir l'emplacement du ficher : ");
 		String myFile = sc.nextLine();
+		if(myFile == null || myFile.isEmpty()){
+			System.out.println("Fichier Path non valide");
+			return ;
+		}
+		
 		FileAnalyser fa = new FileAnalyser(myFile);
 		try {
 			List<Points> myList = fa.tp5LoadFile();
+			if(myList == null || myList.isEmpty()) {
+				System.out.println("Liste de points vide");
+				return;
+			}
 			CalculD c = new CalculD();
 			if(c.start(myList)){
 				double correlation = c.calculateCorrelation();

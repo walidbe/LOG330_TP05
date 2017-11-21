@@ -1,73 +1,102 @@
 package log330_tp05.log330_tp05;
 
 /**
-* La classe Student contient les chapitre de chaque etudiant et la note de lintra.
+* La classe Student contient les chapitre de chaque etudiant
+* et la note de lintra.
 * @author Walid
 *
 */
 public class Student {
 	private String name;
-	private double c1=0;
-	private double c2=0;
-	private double c3=0;
-	private double c4=0;
-	private double c5=0;
-	private double c6=0;
+	private double timeOfRevision1=0;
+	private double timeOfRevision2=0;
+	private double timeOfRevision3=0;
+	private double timeOfRevision4=0;
+	private double timeOfRevision5=0;
+	private double timeOfRevision6=0;
 	private double intra =0;
-	public final static int N = 6;
+	public final static int COUNTER = 6;
 
-	public Student(String name, double c1, double c2, double c3, double c4, double c5, double c6, double intra){
+	public Student(String name, double timeOfRevision1, double timeOfRevision2, double timeOfRevision3, double timeOfRevision4, double timeOfRevision5, double timeOfRevision6, double intra){
 		this.name = name;
-		this.c1 = c1;
-		this.c2 = c2;
-		this.c3 = c3;
-		this.c4 = c4;
-		this.c5 = c5;
-		this.c6 = c6;
+		this.timeOfRevision1 = timeOfRevision1;
+		this.timeOfRevision2 = timeOfRevision2;
+		this.timeOfRevision3 = timeOfRevision3;
+		this.timeOfRevision4 = timeOfRevision4;
+		this.timeOfRevision5 = timeOfRevision5;
+		this.timeOfRevision6 = timeOfRevision6;
 		this.intra = intra;
 	}
-	
-	public double getC1(){
-		return this.c1;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getTimeOfRevision1() {
+		return timeOfRevision1;
+	}
+
+	public void setTimeOfRevision1(double timeOfRevision1) {
+		this.timeOfRevision1 = timeOfRevision1;
+	}
+
+	public double getTimeOfRevision2() {
+		return timeOfRevision2;
+	}
+
+	public void setTimeOfRevision2(double timeOfRevision2) {
+		this.timeOfRevision2 = timeOfRevision2;
+	}
+
+	public double getTimeOfRevision3() {
+		return timeOfRevision3;
+	}
+
+	public void setTimeOfRevision3(double timeOfRevision3) {
+		this.timeOfRevision3 = timeOfRevision3;
+	}
+
+	public double getTimeOfRevision4() {
+		return timeOfRevision4;
+	}
+
+	public void setTimeOfRevision4(double timeOfRevision4) {
+		this.timeOfRevision4 = timeOfRevision4;
+	}
+
+	public double getTimeOfRevision5() {
+		return timeOfRevision5;
+	}
+
+	public void setTimeOfRevision5(double timeOfRevision5) {
+		this.timeOfRevision5 = timeOfRevision5;
+	}
+
+	public double getTimeOfRevision6() {
+		return timeOfRevision6;
+	}
+
+	public void setTimeOfRevision6(double timeOfRevision6) {
+		this.timeOfRevision6 = timeOfRevision6;
+	}
+
+	public double getIntra() {
+		return intra;
+	}
+
+	public void setIntra(double intra) {
+		this.intra = intra;
+	}
+
+	public  double getAverage() {
+		return (timeOfRevision1+timeOfRevision2+timeOfRevision3+timeOfRevision4
+				+timeOfRevision5+timeOfRevision6) / COUNTER;
 	}
 	
 	
-	public double getC2(){
-		return this.c2;
-	}
-	
-	
-	public double getC3(){
-		return this.c3;
-	}
-	
-	
-	public double getC4(){
-		return this.c4;
-	}
-	
-	
-	public double getC5(){
-		return this.c5;
-	}
-	
-	
-	public double getC6(){
-		return this.c6;
-	}
-	
-	
-	public double getIntra(){
-		return this.intra;
-	}
-	
-	
-	public String getName(){
-		return this.name;
-	}
-	
-	public double getAverage(){
-		return (c1+c2+c3+c4+c5+c6)/N;
-	}
 }
 

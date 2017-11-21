@@ -9,7 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-
+/**
+ * This class upload and parse files
+ * with different strategies
+ * @author Walid
+ *
+ */
 public class FileAnalyser {
 
 	private String myFile;
@@ -35,6 +40,10 @@ public class FileAnalyser {
 		bfr.readLine();
 		while((line = bfr.readLine()) != null) {
 			String[] splitLine = line.split(splitBy);
+			if(!checkNumberOfColumnsValidity(splitLine)) {
+				System.out.println("Nombre de colomne pas valide");
+				return numberList;
+			}
 			Student s = new Student(splitLine[0],Double.parseDouble(splitLine[1]),Double.parseDouble(splitLine[2]),
 					Double.parseDouble(splitLine[3]),Double.parseDouble(splitLine[4]),Double.parseDouble(splitLine[5]),
 					Double.parseDouble(splitLine[6]),Double.parseDouble(splitLine[7]));
@@ -42,6 +51,13 @@ public class FileAnalyser {
 		}
 		bfr.close();
 		return numberList;
+	}
+	
+	private Boolean checkNumberOfColumnsValidity(String[] content) {
+		if(content.length == 8) {
+			return true;
+		}
+		return false;
 	}
 	
 	/**
@@ -53,14 +69,14 @@ public class FileAnalyser {
 	 * @throws NumberFormatException 
 	 */
 	public List<Points> loadFile() throws FileNotFoundException, IOException, NumberFormatException, ParseException{
-		String line = null;
+		String elementInList = null;
 		List<Points> numberList = new ArrayList<Points>();
 	
 		BufferedReader bfr = new BufferedReader(new FileReader(myFile));
 		String splitBy = ";";
 		NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);
-		while((line = bfr.readLine()) != null) {
-			String[] splitLine = line.split(splitBy);
+		while((elementInList = bfr.readLine()) != null) {
+			String[] splitLine = elementInList.split(splitBy);
 			numberList.add(new Points(format.parse(splitLine[0]).doubleValue(),format.parse(splitLine[1]).doubleValue()));
 		}
 		bfr.close();
