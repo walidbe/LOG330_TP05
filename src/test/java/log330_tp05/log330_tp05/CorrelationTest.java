@@ -19,7 +19,7 @@ public class CorrelationTest {
 		}
 
 		/**
-	     * Rigourous Test :--)
+	     * Rigourous Test :-)
 		 * @throws IOException 
 		 * @throws FileNotFoundException 
 		 * @throws ParseException 
