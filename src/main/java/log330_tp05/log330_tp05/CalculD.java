@@ -1,6 +1,12 @@
-package log330_tp04.tp04;
+package log330_tp05.log330_tp05;
 import java.util.List;
 
+/**
+ * This class implements all the mathematical logics
+ * b
+ * @author Walid
+ *
+ */
 
 public final class CalculD {
 	private double variance = 0;

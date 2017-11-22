@@ -1,4 +1,4 @@
-package log330_tp04.tp04;
+package log330_tp05.log330_tp05;
 
 import static org.junit.Assert.*;
 

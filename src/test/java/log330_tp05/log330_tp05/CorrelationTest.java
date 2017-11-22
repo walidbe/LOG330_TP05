@@ -1,4 +1,4 @@
-package log330_tp04.tp04;
+package log330_tp05.log330_tp05;
 
 import static org.junit.Assert.assertEquals;
 
@@ -70,6 +70,16 @@ public class CorrelationTest {
 	  	  c.start(fa.loadFile());
 	  	  
 	    } 
+	    
+		@Test
+		public void correlationStudentTest() throws NumberFormatException, FileNotFoundException, IOException, ParseException {
+			FileAnalyser fa = new FileAnalyser("dataStudent.csv");
+	    	 CalculD c = new CalculD();
+			 c.start(fa.tp5LoadFile());
+			assertEquals(0.15,c.calculateCorrelation(),0.01);
+			
+		}
+		
 	    
 	  
 }
